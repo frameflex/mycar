@@ -72,11 +72,11 @@ class _GarageButtonState extends State<GarageButton> {
                         },
                         child: Container(
                           margin: EdgeInsets.only(
-                            top: 25,
+                            top: 20,
                             left: widget.deviceWidth * .05,
                             right: widget.deviceWidth * .05,
                           ),
-                          height: widget.deviceHeight * .1,
+                          height: widget.deviceHeight * .08,
                           width: widget.deviceWidth * .9,
                           child: Card(
                             color:
@@ -84,7 +84,7 @@ class _GarageButtonState extends State<GarageButton> {
                                         index)
                                     ? Colors.grey
                                     : Colors.black,
-                            elevation: 5,
+                            elevation: 4,
                             child: Center(
                               child: Text(
                                 garageController.currentGarages[index].name,
@@ -103,7 +103,7 @@ class _GarageButtonState extends State<GarageButton> {
                 ),
                 if (widget.showAdd)
                   Positioned(
-                    top: -30,
+                    top: -35,
                     right: 25,
                     child: FloatingActionButton(
                       heroTag: const Key('garageButtonBottomSheet'),
@@ -112,7 +112,7 @@ class _GarageButtonState extends State<GarageButton> {
                         Get.dialog(
                           AlertDialog(
                             title: const Text(
-                              'New Garage',
+                              'Add new Car',
                               style: TextStyle(
                                 fontSize: 25,
                                 fontWeight: FontWeight.bold,
@@ -125,7 +125,7 @@ class _GarageButtonState extends State<GarageButton> {
                                 });
                               },
                               decoration: const InputDecoration(
-                                hintText: 'Garage Name',
+                                hintText: 'Car name',
                               ),
                             ),
                             actions: [

@@ -119,7 +119,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 width: deviceWidth,
                 child: Center(
                   child: Text(
-                    'Add a new Vehicle',
+                    'Add your Car to the Garage',
                     style: TextStyle(
                       fontSize: deviceWidth * 0.05,
                       fontWeight: FontWeight.bold,
@@ -172,8 +172,10 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           )
                         : Image(
-                            image: MemoryImage(
+                        fit: BoxFit.fitWidth,
+                          image: MemoryImage(
                               base64Decode(currentGarage.image),
+
                             ),
                           ),
                   ),
@@ -282,14 +284,15 @@ class _HomeScreenState extends State<HomeScreen> {
                             child: Container(
                               height: constraints.maxHeight * .9,
                               width: deviceWidth * .4,
-                              decoration: BoxDecoration(
 
+                              decoration: BoxDecoration(
                                 gradient: LinearGradient(
                                   begin: Alignment.topCenter,
                                   end: Alignment.bottomRight,
                                   colors: [
                                     Colors.black.withOpacity(.03),
                                     Colors.black.withOpacity(.2),
+
                                   ],
                                 ),
                               ),

@@ -220,6 +220,25 @@ class _DetailsScreenState extends State<DetailsScreen> {
                     title: "next Inspection",
                     controller: tuvDateController,
                   ),
+
+                  InputFieldRow(
+                    deviceHeight: deviceHeight,
+                    deviceWidth: deviceWidth,
+                    hintText: "${garage.purchasePrice}\t\t\$",
+                    keyboardType: TextInputType.number,
+                    title: "Purchase Price",
+                    controller: purchasePriceController,
+                  ),
+                  InputFieldRow(
+                    deviceHeight: deviceHeight,
+                    deviceWidth: deviceWidth,
+                    hintText:
+                        "${garage.purchaseDate.day}/${garage.purchaseDate.month}/${garage.purchaseDate.year}",
+                    keyboardType: TextInputType.number,
+                    title: "Purchase Date",
+                    controller: purchaseDateController,
+                    isDate: true,
+                  ),
                   SizedBox(
                     height: deviceHeight * 0.05,
                     width: deviceWidth * 0.9,
@@ -244,23 +263,29 @@ class _DetailsScreenState extends State<DetailsScreen> {
                       ],
                     ),
                   ),
-                  InputFieldRow(
-                    deviceHeight: deviceHeight,
-                    deviceWidth: deviceWidth,
-                    hintText: "${garage.purchasePrice}\t\t\$",
-                    keyboardType: TextInputType.number,
-                    title: "Purchase Price",
-                    controller: purchasePriceController,
-                  ),
-                  InputFieldRow(
-                    deviceHeight: deviceHeight,
-                    deviceWidth: deviceWidth,
-                    hintText:
-                        "${garage.purchaseDate.day}/${garage.purchaseDate.month}/${garage.purchaseDate.year}",
-                    keyboardType: TextInputType.number,
-                    title: "Purchase Date",
-                    controller: purchaseDateController,
-                    isDate: true,
+                  SizedBox(
+                    height: deviceHeight * 0.05,
+                    width: deviceWidth * 0.9,
+                    child: Row(
+                      children: [
+                        Text(
+                          "Total Cost",
+                          style: TextStyle(
+                            fontSize: deviceHeight * 0.02,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        const Spacer(),
+                        Text(
+                          "$partsPrice\t\$",
+                          style: TextStyle(
+                            fontSize: deviceHeight * 0.02,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                   ShowParts(
                     deviceHeight: deviceHeight,
