@@ -29,7 +29,7 @@ void addParts({
             width: deviceWidth,
           ),
           const Text(
-            "Add Pars",
+            "Add Parts",
             style: TextStyle(
               fontWeight: FontWeight.bold,
               color: Colors.black,
