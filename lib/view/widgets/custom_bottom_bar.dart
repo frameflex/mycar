@@ -56,7 +56,7 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
               width: deviceWidth * .2,
               decoration: BoxDecoration(
                 color:
-                    (widget.selectedIndex == 1) ? Colors.green : Colors.white,
+                    (widget.selectedIndex == 1) ? Colors.black : Colors.white,
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Column(
