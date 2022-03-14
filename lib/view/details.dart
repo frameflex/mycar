@@ -155,9 +155,9 @@ class _DetailsScreenState extends State<DetailsScreen> {
                   InputFieldRow(
                     deviceHeight: deviceHeight,
                     deviceWidth: deviceWidth,
-                    hintText: "${garage.horsePower} HP",
+                    hintText: "${garage.horsePower} PS",
                     keyboardType: TextInputType.name,
-                    title: "Horse Power",
+                    title: "Horsepower",
                     controller: horsePowerController,
                   ),
                   InputFieldRow(
@@ -165,7 +165,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                     deviceWidth: deviceWidth,
                     hintText: garage.year,
                     keyboardType: TextInputType.name,
-                    title: "Year",
+                    title: "Model year",
                     controller: yearController,
                   ),
                   InputFieldRow(
@@ -173,7 +173,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                     deviceWidth: deviceWidth,
                     hintText: garage.colorCode,
                     keyboardType: TextInputType.name,
-                    title: "Color Code",
+                    title: "Color code",
                     controller: colorController,
                   ),
                   InputFieldRow(
@@ -217,7 +217,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                     isDate: true,
                     hintText:
                         "${garage.tuvDate.day}/${garage.tuvDate.month}/${garage.tuvDate.year}",
-                    title: "TUV Date",
+                    title: "next Inspection",
                     controller: tuvDateController,
                   ),
                   SizedBox(
