@@ -25,7 +25,7 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
         color: Colors.white,
         border: Border(
           top: BorderSide(
-            color: Colors.black,
+            color: Colors.black12,
             width: 1,
           ),
         ),

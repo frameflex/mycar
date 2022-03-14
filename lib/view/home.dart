@@ -128,7 +128,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               )
             : Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   SizedBox(
                     height: deviceHeight * .05,
@@ -145,7 +145,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     height: deviceHeight * .05,
                     width: deviceWidth * .9,
                     child: Align(
-                      alignment: Alignment.centerRight,
+                      alignment: Alignment.centerLeft,
                       child: Text(
                         currentGarage.name,
                         style: TextStyle(
@@ -185,7 +185,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           width: 40,
                         ),
                         SizedBox(
-                          width: deviceWidth * .17,
+                          width: deviceWidth * .14,
                           child: const Image(
                             image: AssetImage('assets/icons/engine_icon.png'),
                           ),
@@ -209,7 +209,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 currentGarage.engine,
                                 overflow: TextOverflow.ellipsis,
                                 style: TextStyle(
-                                  fontSize: deviceHeight * .025,
+                                  fontSize: deviceHeight * .02,
                                 ),
                               ),
                             ),
@@ -227,7 +227,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         width: 40,
                       ),
                       SizedBox(
-                        width: deviceWidth * .16,
+                        width: deviceWidth * .13,
                         child: const Image(
                           image: AssetImage('assets/icons/calendar_icon.png'),
                         ),
@@ -248,7 +248,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           Text(
                             '${DateTime.now().year - currentGarage.purchaseDate.year} year of ownership',
                             style: TextStyle(
-                              fontSize: deviceHeight * .025,
+                              fontSize: deviceHeight * .02,
                             ),
                           ),
                         ],
@@ -259,7 +259,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     height: 10,
                   ),
                   const Divider(
-                    thickness: 2,
+                    color: Colors.black12,
+                    thickness: 1,
                   ),
                   const SizedBox(
                     height: 10,
@@ -282,13 +283,13 @@ class _HomeScreenState extends State<HomeScreen> {
                               height: constraints.maxHeight * .9,
                               width: deviceWidth * .4,
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
+
                                 gradient: LinearGradient(
-                                  begin: Alignment.topLeft,
+                                  begin: Alignment.topCenter,
                                   end: Alignment.bottomRight,
                                   colors: [
-                                    Colors.black,
-                                    Colors.black.withOpacity(.5),
+                                    Colors.black.withOpacity(.03),
+                                    Colors.black.withOpacity(.2),
                                   ],
                                 ),
                               ),
@@ -300,7 +301,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     'Documents',
                                     style: TextStyle(
                                       fontSize: deviceHeight * .022,
-                                      color: Colors.white,
+                                      color: Colors.black,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
@@ -308,7 +309,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     height: constraints.maxHeight * .5,
                                     child: const Image(
                                       image: AssetImage(
-                                        'assets/icons/documents_white_icon.png',
+                                        'assets/icons/documents_black_icon.png',
                                       ),
                                     ),
                                   ),
@@ -328,13 +329,13 @@ class _HomeScreenState extends State<HomeScreen> {
                               height: constraints.maxHeight * .9,
                               width: deviceWidth * .4,
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
+
                                 gradient: LinearGradient(
-                                  begin: Alignment.topLeft,
+                                  begin: Alignment.topCenter,
                                   end: Alignment.bottomRight,
                                   colors: [
-                                    Colors.black,
-                                    Colors.black.withOpacity(.5),
+                                    Colors.black.withOpacity(.03),
+                                    Colors.black.withOpacity(.2),
                                   ],
                                 ),
                               ),
@@ -346,7 +347,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     'Add Parts',
                                     style: TextStyle(
                                       fontSize: deviceHeight * .022,
-                                      color: Colors.white,
+                                      color: Colors.black,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
@@ -354,7 +355,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     height: constraints.maxHeight * .5,
                                     child: const Image(
                                       image: AssetImage(
-                                        'assets/icons/parts_white_icon.png',
+                                        'assets/icons/parts_black_icon.png',
                                       ),
                                     ),
                                   ),
