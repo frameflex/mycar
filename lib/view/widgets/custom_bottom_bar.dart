@@ -30,12 +30,13 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
           ),
         ),
       ),
-      height: deviceHeight * .13,
+      height: deviceHeight * .12,
       width: deviceWidth,
       child: Row(
         children: [
           SizedBox(
             width: deviceWidth * 0.1,
+
           ),
 
           InkWell(
@@ -50,10 +51,11 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
               decoration: BoxDecoration(
                 color:
                 (widget.selectedIndex == 0) ? Colors.black : Colors.white,
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(15),
               ),
               child: Column(
                 children: [
+
                   SizedBox(
                     width: deviceWidth * .1,
                     child: Image(
@@ -101,7 +103,7 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
               decoration: BoxDecoration(
                 color:
                     (widget.selectedIndex == 1) ? Colors.black : Colors.white,
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(15),
               ),
               child: Column(
                 children: [
@@ -150,8 +152,8 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
               width: deviceWidth * .2,
               decoration: BoxDecoration(
                 color:
-                    (widget.selectedIndex == 2) ? Colors.black : Colors.white,
-                borderRadius: BorderRadius.circular(10),
+                (widget.selectedIndex == 2) ? Colors.black : Colors.white,
+                borderRadius: BorderRadius.circular(15),
               ),
               child: Column(
                 children: [

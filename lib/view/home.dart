@@ -143,15 +143,17 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   SizedBox(
                     height: deviceHeight * .05,
-                    width: deviceWidth * .9,
+                    width: deviceWidth * .85,
                     child: Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
                         currentGarage.name,
                         style: TextStyle(
                           fontSize: deviceHeight * .035,
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w900,
+                          fontStyle: FontStyle.italic,
                           color: Colors.black,
+                          fontFamily: 'Open Sans',
                         ),
                       ),
                     ),
@@ -187,7 +189,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           width: 40,
                         ),
                         SizedBox(
-                          width: deviceWidth * .14,
+                          width: deviceWidth * .12,
                           child: const Image(
                             image: AssetImage('assets/icons/engine_icon.png'),
                           ),
@@ -202,7 +204,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             Text(
                               'Engine',
                               style: TextStyle(
-                                fontSize: deviceHeight * .025,
+                                fontSize: deviceHeight * .02,
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
                             SizedBox(
@@ -229,7 +232,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         width: 40,
                       ),
                       SizedBox(
-                        width: deviceWidth * .13,
+                        width: deviceWidth * .11,
                         child: const Image(
                           image: AssetImage('assets/icons/calendar_icon.png'),
                         ),
@@ -244,7 +247,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           Text(
                             currentGarage.year,
                             style: TextStyle(
-                              fontSize: deviceHeight * .025,
+                              fontSize: deviceHeight * .02,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
                           Text(
