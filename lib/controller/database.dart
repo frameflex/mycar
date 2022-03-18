@@ -8,7 +8,9 @@ import 'package:sqflite/sqflite.dart';
 import 'package:get/get.dart';
 
 import '../model/document.dart';
+import '../model/note.dart';
 import '../model/part.dart';
+import '../model/wheel.dart';
 
 class MyDB {
   late Database myDB;
@@ -28,6 +30,9 @@ class MyDB {
           );
           await db.execute(
             'CREATE TABLE Part(id INTEGER PRIMARY KEY AUTOINCREMENT , name STRING, garageId INTEGER, price REAL)',
+          );
+          await db.execute(
+            'CREATE TABLE Note(id INTEGER PRIMARY KEY AUTOINCREMENT , name STRING, garageId INTEGER, price REAL)',
           );
         },
       );
@@ -185,6 +190,59 @@ class MyDB {
     );
     debugPrint("part deleted!");
   }
+
+// * add note to the garage
+
+  Future<void> addNote(Note toAdd) async {
+    debugPrint("adding note to the garage table.");
+    await myDB.insert(
+      'Note',
+      {
+        'name': toAdd.name,
+        'garageIdN': toAdd.garageIdN,
+
+      },
+    );
+    debugPrint("note added!");
+  }
+
+  // * get notes of the garage
+
+  Future<List<Note>> getNotes(String garageIdN) async {
+    List<Map> list = await myDB.query(
+      'Note',
+      where: "garageIdN = $garageIdN",
+    );
+
+    debugPrint("got all notes - length is ${list.length}");
+
+    List<Note> notes = [];
+
+    for (var i = 0; i < list.length; i++) {
+      notes.add(
+        Note.fromMap(
+          list[i],
+        ),
+      );
+    }
+
+    return notes;
+  }
+
+  // * delete note from the garage
+
+  Future<void> removeNote({required Note note}) async {
+    debugPrint("deleting note from the garage table.");
+    await myDB.delete(
+      'Note',
+      where: "garageIdN = ${note.garageIdN} AND id = ${note.id}",
+    );
+    debugPrint("note deleted!");
+  }
+
+
+
+
 
   // * add document to the garage
 

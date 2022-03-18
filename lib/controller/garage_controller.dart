@@ -5,6 +5,8 @@ import 'package:mycar/model/part.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../model/garage.dart';
+import '../model/note.dart';
+import '../model/wheel.dart';
 import '../view/home.dart';
 
 class GarageController extends GetxController {
@@ -15,6 +17,8 @@ class GarageController extends GetxController {
   var db = MyDB();
 
   List<Part> parts = [];
+  List<Part> notes = [];
+  List<Part> wheels = [];
   var docs = [].obs;
 
   @override
@@ -69,6 +73,28 @@ class GarageController extends GetxController {
     parts.remove(part);
     await db.removePart(part: part);
   }
+
+
+  // add notes in garage
+
+  Future<void> addNotes({required Note note}) async {
+    await db.addNote(note);
+  }
+
+  // get all the notes in garage
+ // Future<void> getNotes() async {
+  //  notes = await db.getNotes(
+   //   currentGarages[selectedGarageIndex.value].id,
+  //;
+  //}
+
+  // remove notes in a garage
+
+  Future<void> removeNote({required Note note}) async {
+    notes.remove(note);
+    await db.removeNote(note: note);
+  }
+
 
   // get all documents in garage
 

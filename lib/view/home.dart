@@ -3,12 +3,15 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mycar/view/wheels.dart';
 import 'package:mycar/view/widgets/add_parts.dart';
 import 'package:mycar/controller/garage_controller.dart';
 import 'package:mycar/model/garage.dart';
 import 'package:mycar/view/document_gallery.dart';
 import 'package:mycar/view/widgets/custom_bottom_bar.dart';
 import 'package:mycar/view/widgets/garage_button.dart';
+
+import 'notes.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -262,14 +265,14 @@ class _HomeScreenState extends State<HomeScreen> {
                     ],
                   ),
                   const SizedBox(
-                    height: 10,
+                    height: 5,
                   ),
                   const Divider(
-                    color: Colors.black12,
+
                     thickness: 1,
                   ),
                   const SizedBox(
-                    height: 10,
+                    height: 5,
                   ),
                   Expanded(
                     child: LayoutBuilder(builder: (context, constraints) {
@@ -281,7 +284,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           InkWell(
                             onTap: () {
                               Get.to(
-                                () => const DocumentsGalleryScreen(),
+                                    () => const DocumentsGalleryScreen(),
                                 transition: Transition.fadeIn,
                               );
                             },
@@ -302,7 +305,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                               child: Column(
                                 mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
+                                MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Text(
                                     'Documents',
@@ -327,11 +330,12 @@ class _HomeScreenState extends State<HomeScreen> {
                           const Spacer(),
                           InkWell(
                             // * this function addParts() is defined in the widgets/add_parts.dart file
-                            onTap: () => addParts(
-                              deviceHeight: deviceHeight,
-                              deviceWidth: deviceWidth,
-                              controller: garageController,
-                            ),
+                            onTap: () =>
+                                addParts(
+                                  deviceHeight: deviceHeight,
+                                  deviceWidth: deviceWidth,
+                                  controller: garageController,
+                                ),
                             child: Container(
                               height: constraints.maxHeight * .9,
                               width: deviceWidth * .4,
@@ -348,7 +352,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                               child: Column(
                                 mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
+                                MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Text(
                                     'Add Parts',
@@ -377,8 +381,120 @@ class _HomeScreenState extends State<HomeScreen> {
                       );
                     }),
                   ),
+
                   const SizedBox(
-                    height: 20,
+                    height: 5,
+                  ),
+                  Expanded(
+                    child: LayoutBuilder(builder: (context, constraints) {
+                      return Row(
+                        children: [
+                          SizedBox(
+                            width: deviceWidth * .08,
+                          ),
+                          InkWell(
+                            onTap: () {
+                              Get.to(
+                                    () => const NoteScreen(),
+                                transition: Transition.fadeIn,
+                              );
+                            },
+                            child: Container(
+                              height: constraints.maxHeight * .9,
+                              width: deviceWidth * .4,
+
+                              decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                  begin: Alignment.topCenter,
+                                  end: Alignment.bottomRight,
+                                  colors: [
+                                    Colors.black.withOpacity(.03),
+                                    Colors.black.withOpacity(.2),
+
+                                  ],
+                                ),
+                              ),
+                              child: Column(
+                                mainAxisAlignment:
+                                MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Text(
+                                    'To-Do List',
+                                    style: TextStyle(
+                                      fontSize: deviceHeight * .022,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: constraints.maxHeight * .5,
+                                    child: const Image(
+                                      image: AssetImage(
+                                        'assets/icons/ToDo_black_icon.png',
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          const Spacer(),
+                          InkWell(
+                            // * this function addParts() is defined in the widgets/add_parts.dart file
+                            onTap: () {
+                              Get.to(
+                                    () => const WheelsScreen(),
+
+                                transition: Transition.fadeIn,
+                              );
+                            },
+                            child: Container(
+                              height: constraints.maxHeight * .9,
+                              width: deviceWidth * .4,
+                              decoration: BoxDecoration(
+
+                                gradient: LinearGradient(
+                                  begin: Alignment.topCenter,
+                                  end: Alignment.bottomRight,
+                                  colors: [
+                                    Colors.black.withOpacity(.03),
+                                    Colors.black.withOpacity(.2),
+                                  ],
+                                ),
+                              ),
+                              child: Column(
+                                mainAxisAlignment:
+                                MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Text(
+                                    'Wheels',
+                                    style: TextStyle(
+                                      fontSize: deviceHeight * .022,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: constraints.maxHeight * .5,
+                                    child: const Image(
+                                      image: AssetImage(
+                                        'assets/icons/wheel_black_icon.png',
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            width: deviceWidth * .08,
+                          ),
+                        ],
+                      );
+                    }),
+                  ),
+                  const SizedBox(
+                    height: 10,
                   ),
                 ],
               ),

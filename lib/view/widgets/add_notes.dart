@@ -1,0 +1,106 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:mycar/controller/garage_controller.dart';
+import 'package:mycar/model/note.dart';
+
+void addNotes({
+  required double deviceHeight,
+  required double deviceWidth,
+  required GarageController controller,
+}) {
+  TextEditingController _nameController = TextEditingController();
+
+
+  Get.bottomSheet(
+    Container(
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(20),
+          topRight: Radius.circular(20),
+        ),
+      ),
+      height: deviceHeight * 0.5,
+      width: deviceWidth,
+      child: Column(
+        children: [
+          SizedBox(
+            height: 20,
+            width: deviceWidth,
+          ),
+          const Text(
+            "Add Notes",
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+              fontSize: 20,
+            ),
+          ),
+          SizedBox(
+            height: 20,
+            width: deviceWidth,
+          ),
+          SizedBox(
+            width: deviceWidth * .9,
+            child: TextField(
+              controller: _nameController,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                labelText: "What needs to be done?",
+              ),
+            ),
+          ),
+
+          const SizedBox(
+            height: 50,
+          ),
+          InkWell(
+            onTap: () async {
+              // * create a new entry in parts table
+              await controller.addNotes(
+                note: Note(
+                  garageIdN: controller
+                      .currentGarages[controller.selectedGarageIndex.value].id.toString(),
+
+                  id: 0,
+                  name:_nameController.text
+                ),
+              );
+              Get.back();
+            },
+            child: Container(
+              height: deviceHeight * .07,
+              width: deviceWidth * .9,
+              decoration: const BoxDecoration(
+                color: Colors.black,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(10),
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey,
+                    blurRadius: 10,
+                    offset: Offset(0, 10),
+                  ),
+                ],
+              ),
+              child: const Center(
+                child: Text(
+                  "Add Note",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    ),
+    isScrollControlled: true,
+  );
+}
